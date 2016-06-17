@@ -9,8 +9,7 @@ build:
 	mkdir $(dir)/watch
 
 run:
-	@echo "Run :"
-	@echo "docker run --name torrent -d -p 9091:9091 -p 51413:51413 -p 51413:51413/udp -v $(dir)/downloads:/downloads -v $(dir)/config:/config -v $(dir)/incomplete:/incomplete -v $(dir)/watch:/watch rpi-transmission"
+	docker run --name torrent -d -p 9091:9091 -p 51413:51413 -p 51413:51413/udp -v $(dir)/downloads:/downloads -v $(dir)/config:/config -v $(dir)/incomplete:/incomplete -v $(dir)/watch:/watch rpi-transmission
 
 clean:
 	docker rm torrent && docker rmi rpi-transmission
